@@ -1,0 +1,71 @@
+data:
+  data_dir: '/mnt/dev/multispeaker_christine_charles_jean_jared/preprocessed/'
+  wav_dir: '/FastSpeech2/wavs/'
+  train_filelist: "/mnt/dev/multispeaker_christine_charles_jean_jared/filelist/train_v2.txt"
+  valid_filelist: "/mnt/dev/multispeaker_christine_charles_jean_jared/filelist/valid_v2.txt"
+  tts_cleaner_names: ['english_cleaners']
+
+
+# feature extraction related
+audio:
+  sample_rate: 22050      # sampling frequency
+  fmax: 8000.0       # maximum frequency
+  fmin: 0.0       # minimum frequency
+  n_mels: 80     # number of mel basis
+  n_fft: 1024    # number of fft points
+  hop_length: 256   # number of shift points
+  win_length: 1024 # window length
+  num_mels : 80
+  min_level_db : -100
+  ref_level_db : 20
+  bits : 9                            # bit depth of signal
+  mu_law : True                       # Recommended to suppress noise if using raw bits in hp.voc_mode below
+  peak_norm : False                   # Normalise to the peak of each wav file
+
+
+
+
+
+# network architecture related
+model:
+  name: "mel_generator"
+  embed_dim: 0
+  eprenet_conv_layers: 0  # one more linear layer w/o non_linear will be added for 0_centor
+  eprenet_conv_filts: 0
+  eprenet_conv_chans: 0
+  dprenet_layers: 2  # one more linear layer w/o non_linear will be added for 0_centor
+  dprenet_units: 256 # 384
+  adim: 256
+  aheads: 2
+  elayers: 2
+  eunits: 1024
+  sheads: 2
+  slayers: 2
+  sunits: 1024
+  ddim: 256
+  dlayers: 5
+  dunits: 1024
+  positionwise_layer_type : "conv1d" # linear
+  positionwise_conv_kernel_size1 : 5 # 9
+  positionwise_conv_kernel_size2 : 5 # 1
+  postnet_layers: 5
+  postnet_filts: 5
+  postnet_chans: 256
+  use_masking: True
+  use_weighted_masking: False
+  bce_pos_weight: 5.0
+  use_batch_norm: True
+  use_scaled_pos_enc: True
+  encoder_normalize_before: False
+  decoder_normalize_before: False
+  encoder_concat_after: False
+  decoder_concat_after: False
+  reduction_factor: 1
+  postnet_dropout_rate: 0.5
+  prenet_dropout: 0.1
+
+  ### FastSpeech
+  duration_predictor_layers: 2
+  duration_predictor_chans: 256
+  duration_predictor_kernel_size: 3
+  duration_predictor_dropout_rate: 0.5
