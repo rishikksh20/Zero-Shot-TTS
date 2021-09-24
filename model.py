@@ -92,9 +92,7 @@ class MelGenerator(nn.Module):
             text : [B, Lmax, Dim]
             duration: [B, Lmax]
         outputs :
-            mean : [B, Tmax, Bin]
-            std : [B, Tmax]
-            mean: [B, Tmax]
+            mel_spec : [B, Tmax, Bin]
         '''
 
         # Embedding
