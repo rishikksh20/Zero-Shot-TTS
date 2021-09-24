@@ -14,5 +14,8 @@ This repo contains only model Implementation of [Zero-Shot Text-to-Speech for Te
       primaryClass={cs.SD}
 }
 ```
+## Note
+* This repo only contains model implementation, not dataloader and training code, also it is not well tested from my side.
+* For more complete TTS or Speech Synthesis solution please visit [DeepSync](https://deepsync.co/) .
 
 
