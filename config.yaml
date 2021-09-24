@@ -62,7 +62,7 @@ model:
   decoder_concat_after: False
   reduction_factor: 1
   postnet_dropout_rate: 0.5
-  prenet_dropout: 0.1
+  prenet_dropout: 0.2
 
   ### FastSpeech
   duration_predictor_layers: 2
