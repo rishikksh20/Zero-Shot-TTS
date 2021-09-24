@@ -148,9 +148,9 @@ class Conv1dBNReLU(nn.Module):
         init_gain (str, optional): method to set the gain for weight initialization. Defaults to 'linear'.
     """
 
-    def __init__(self, in_features, out_features, bias=False, init_gain="relu"):
+    def __init__(self, in_features, out_features, kernel_size=5, bias=False, init_gain="relu"):
         super().__init__()
-        self.linear_layer = torch.nn.Conv1d(in_features, out_features, kernel_size=1, bias=bias)
+        self.linear_layer = torch.nn.Conv1d(in_features, out_features, kernel_size=kernel_size, bias=bias)
         self.batch_normalization = nn.BatchNorm1d(out_features, momentum=0.1, eps=1e-5)
         self._init_w(init_gain)
 
